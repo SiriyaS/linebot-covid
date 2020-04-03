@@ -9,7 +9,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 )
 
 # เพื่อที่จะ push ขึ้น heroku ได้ https://github.com/nicolewhite/slack-meme/pull/40
@@ -103,12 +103,12 @@ def handle_message(event):
                            ที่มา : {} ".format(data['UpdateDate'], data['Confirmed'], data['NewConfirmed'], data['Recovered'], data['NewRecovered'], 
                            data['Hospitalized'], data['NewHospitalized'], data['Deaths'], data['NewDeaths'], data['Source'])
                 reply_message = TextSendMessage(message)
-                if(splited[2] == 'symptoms'):
-                    # Send image message
-                    reply_message = ImageSendMessage(
-                        original_content_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg',
-                        preview_image_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg'
-                    )
+            elif(splited[1] == 'covid' and splited[2] == 'symptoms'):
+                # Send image message
+                reply_message = ImageSendMessage(
+                    original_content_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg',
+                    preview_image_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg'
+                )
 
 
     line_bot_api.reply_message(
