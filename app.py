@@ -12,6 +12,13 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
+from slack.models import Memegen, Slack, parse_text_into_params, image_exists
+
+try:
+    from urllib import unquote_plus, quote
+except ImportError:
+    from urllib.parse import unquote_plus, quote
+
 app = Flask(__name__)
 
 line_bot_api = LineBotApi('kmQKjpnw+Elj155frdQfSx8RPe0Q0W9raqF3E8C2+XOA7X8Tnho98I0jLQm0GqvPX1gcvJYALhuWrNra+oJEZdemnVhEnTP8JfZg3ferY0g8gwYwNRMqelZw9tm723QrXBlaHxRQ7WrMkAupdnGwkwdB04t89/1O/w1cDnyilFU=')
