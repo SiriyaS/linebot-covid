@@ -71,9 +71,49 @@ def callback():
 # Message ที่ตอบกลับในห้องแชท
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    print(event.message)
+
+    # ทำให้ที่พิมพ์เข้ามาเป็นตัวพิมเล็ก
+    eventText = event.message.text.lower()
+
+    # trim space หน้า หลัง
+    trimmed = eventText.strip()
+
+    if(trimmed == 'cbot'):
+        message = "try 'cbot hi' or 'cbot covid'"
+        reply_message = TextSendMessage(message)
+    else:
+        # split string by white space
+        splited = trimmed.split(" ")
+        print(splited)
+        if(splited[0] == 'cbot'):
+            if(splited[1] == 'hi'):
+                message = "I'm C'Bot. Nice to meet you."
+                reply_message = TextSendMessage(message)
+            elif(splited[1] == 'covid'):
+                r = requests.get('https://covid19.th-stat.com/api/open/today')
+                data = r.json() # python dictionary
+                message = "ยืนยันยอดผู้ป่วย COVID-19 ในไทย \
+                           อัพเดตล่าสุดเมื่อ {} \
+                           ยอดผู้ติดเชื้อสะสม {} คน (🔺{}) \
+                           รักษาหาย {} คน (🔺{}) \
+                           กำลังรักษา {} คน (🔺{}) \
+                           เสียชีวิต {} คน (🔺{}) \
+                            \
+                           ที่มา : {} ".format(data['UpdateDate'], data['Confirmed'], data['NewConfirmed'], data['Recovered'], data['NewRecovered'], 
+                           data['Hospitalized'], data['NewHospitalized'], data['Deaths'], data['NewDeaths'], data['Source'])
+                reply_message = TextSendMessage(message)
+                if(splited[2] == 'symptoms'):
+                    # Send image message
+                    reply_message = ImageSendMessage(
+                        original_content_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg',
+                        preview_image_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg'
+                    )
+
+
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        reply_message)
 
 
 if __name__ == "__main__":
