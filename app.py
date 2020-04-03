@@ -94,16 +94,16 @@ def handle_message(event):
                 r = requests.get('https://covid19.th-stat.com/api/open/today')
                 data = r.json() # python dictionary
                 message = "ยืนยันยอดผู้ป่วย COVID-19 ในไทย \
-                           อัพเดตล่าสุดเมื่อ {} \
-                           ยอดผู้ติดเชื้อสะสม {} คน (🔺{}) \
-                           รักษาหาย {} คน (🔺{}) \
-                           กำลังรักษา {} คน (🔺{}) \
-                           เสียชีวิต {} คน (🔺{}) \
-                            \
+                           อัพเดตล่าสุดเมื่อ {} \n \
+                           ยอดผู้ติดเชื้อสะสม {} คน (🔺{}) \n \
+                           รักษาหาย {} คน (🔺{}) \n \
+                           กำลังรักษา {} คน (🔺{}) \n \
+                           เสียชีวิต {} คน (🔺{}) \n \
+                           \n \
                            ที่มา : {} ".format(data['UpdateDate'], data['Confirmed'], data['NewConfirmed'], data['Recovered'], data['NewRecovered'], 
                            data['Hospitalized'], data['NewHospitalized'], data['Deaths'], data['NewDeaths'], data['Source'])
                 reply_message = TextSendMessage(message)
-            elif(splited[1] == 'covid' and splited[2] == 'symptoms'):
+            elif(splited[1] == 'symptoms'):
                 # Send image message
                 reply_message = ImageSendMessage(
                     original_content_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg',
