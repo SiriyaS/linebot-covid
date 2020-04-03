@@ -44,7 +44,7 @@ def covid():
     data = r.json() # python dictionary
     return jsonify(data)
 
-@app.route("/callback", methods=['POST'])
+@app.route("/webhook", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
@@ -63,10 +63,10 @@ def callback():
     return 'OK'
 
 # webhook
-@app.route("/webhook", methods=['GET', 'POST'])
-def webhook():
-    if request.method == 'POST':
-        return status.HTTP_200_OK
+# @app.route("/webhook", methods=['GET', 'POST'])
+# def webhook():
+#     if request.method == 'POST':
+#         return status.HTTP_200_OK
 
 # Message ที่ตอบกลับในห้องแชท
 @handler.add(MessageEvent, message=TextMessage)
