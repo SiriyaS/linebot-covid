@@ -93,9 +93,8 @@ def handle_message(event):
             elif(splited[1] == 'covid'):
                 r = requests.get('https://covid19.th-stat.com/api/open/today')
                 data = r.json() # python dictionary
-                message = "ยืนยันยอดผู้ป่วย COVID-19 ในไทย \n อัพเดตล่าสุดเมื่อ {} \n ยอดผู้ติดเชื้อสะสม {} คน (🔺{}) \n รักษาหาย {} คน (🔺{}) \n กำลังรักษา {} คน (🔺{}) \n เสียชีวิต {} คน (🔺{}) \n \
-                           \n \
-                           ที่มา : {} ".format(data['UpdateDate'], data['Confirmed'], data['NewConfirmed'], data['Recovered'], data['NewRecovered'], 
+                message = "ยืนยันยอดผู้ป่วย COVID-19 ในไทย \nอัพเดตล่าสุดเมื่อ {} \nยอดผู้ติดเชื้อสะสม {} คน (🔺{}) \nรักษาหาย {} คน (🔺{}) \nกำลังรักษา {} คน (🔺{}) \nเสียชีวิต {} คน (🔺{}) \n \nที่มา : {} ".format(data['UpdateDate'],
+                           data['Confirmed'], data['NewConfirmed'], data['Recovered'], data['NewRecovered'], 
                            data['Hospitalized'], data['NewHospitalized'], data['Deaths'], data['NewDeaths'], data['Source'])
                 reply_message = TextSendMessage(message)
             elif(splited[1] == 'symptoms'):
