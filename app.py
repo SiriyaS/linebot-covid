@@ -13,12 +13,12 @@ from linebot.models import (
 )
 
 # เพื่อที่จะ push ขึ้น heroku ได้ https://github.com/nicolewhite/slack-meme/pull/40
-from slack.models import Memegen, Slack, parse_text_into_params, image_exists
+# from slack.models import Memegen, Slack, parse_text_into_params, image_exists
 
-try:
-    from urllib import unquote_plus, quote
-except ImportError:
-    from urllib.parse import unquote_plus, quote
+# try:
+#     from urllib import unquote_plus, quote
+# except ImportError:
+#     from urllib.parse import unquote_plus, quote
 
 # --------------------------------------------------------------------------------
 
