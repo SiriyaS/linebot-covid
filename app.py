@@ -12,12 +12,15 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
+# เพื่อที่จะ push ขึ้น heroku ได้
 from slack.models import Memegen, Slack, parse_text_into_params, image_exists
 
 try:
     from urllib import unquote_plus, quote
 except ImportError:
     from urllib.parse import unquote_plus, quote
+
+# --------------------------------------------------------------------------------
 
 app = Flask(__name__)
 
@@ -60,10 +63,10 @@ def callback():
     return 'OK'
 
 # webhook
-# @app.route("/webhook", methods=['GET', 'POST'])
-# def webhook():
-#     if request.method == 'POST':
-#         return 'OK'
+@app.route("/webhook", methods=['GET', 'POST'])
+def webhook():
+    if request.method == 'POST':
+        return 'OK'
 
 # Message ที่ตอบกลับในห้องแชท
 @handler.add(MessageEvent, message=TextMessage)
