@@ -12,7 +12,7 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
-# เพื่อที่จะ push ขึ้น heroku ได้
+# เพื่อที่จะ push ขึ้น heroku ได้ https://github.com/nicolewhite/slack-meme/pull/40
 from slack.models import Memegen, Slack, parse_text_into_params, image_exists
 
 try:
@@ -66,7 +66,7 @@ def callback():
 @app.route("/webhook", methods=['GET', 'POST'])
 def webhook():
     if request.method == 'POST':
-        return 'OK'
+        return status.HTTP_200_OK
 
 # Message ที่ตอบกลับในห้องแชท
 @handler.add(MessageEvent, message=TextMessage)
