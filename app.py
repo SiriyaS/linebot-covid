@@ -12,15 +12,6 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 )
 
-# เพื่อที่จะ push ขึ้น heroku ได้ https://github.com/nicolewhite/slack-meme/pull/40
-# from slack.models import Memegen, Slack, parse_text_into_params, image_exists
-
-# try:
-#     from urllib import unquote_plus, quote
-# except ImportError:
-#     from urllib.parse import unquote_plus, quote
-
-# --------------------------------------------------------------------------------
 
 app = Flask(__name__)
 
@@ -60,7 +51,7 @@ def callback():
         print("Invalid signature. Please check your channel access token/channel secret.")
         abort(400)
 
-    return 'OK'
+    return status.HTTP_200_OK
 
 # webhook
 # @app.route("/webhook", methods=['GET', 'POST'])
