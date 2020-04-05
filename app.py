@@ -53,11 +53,6 @@ def callback():
 
     return 'OK'
 
-# webhook
-# @app.route("/webhook", methods=['GET', 'POST'])
-# def webhook():
-#     if request.method == 'POST':
-#         return status.HTTP_200_OK
 
 # Message ที่ตอบกลับในห้องแชท
 @handler.add(MessageEvent, message=TextMessage)
@@ -67,6 +62,7 @@ def handle_message(event):
     # ทำให้ที่พิมพ์เข้ามาเป็นตัวพิมเล็ก
     eventText = event.message.text.lower()
 
+    # return 200 OK for line webhook verify
     if(eventText == 'hello, world'):
         return 'OK'
 
@@ -86,7 +82,7 @@ def handle_message(event):
                 reply_message = TextSendMessage(message)
             elif(splited[1] == 'covid'):
                 r = requests.get('https://covid19.th-stat.com/api/open/today')
-                data = r.json() # python dictionary
+                data = r.json() # python dictionary เอาข้อมูลที่อยู่ในแต่ละอัน data['key']
                 message = "ยืนยันยอดผู้ป่วย COVID-19 ในไทย \nอัพเดตล่าสุดเมื่อ {} \nยอดผู้ติดเชื้อสะสม {} คน (🔺{}) \nรักษาหาย {} คน (🔺{}) \nกำลังรักษา {} คน (🔺{}) \nเสียชีวิต {} คน (🔺{}) \n \nที่มา : {} ".format(data['UpdateDate'],
                            data['Confirmed'], data['NewConfirmed'], data['Recovered'], data['NewRecovered'], 
                            data['Hospitalized'], data['NewHospitalized'], data['Deaths'], data['NewDeaths'], data['Source'])
