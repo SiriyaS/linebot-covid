@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 It's time to implement yor line API logic!
 
-※ the logic for bot to answer the chat is in `function handle_message` 
+※ the **logic** for linebot to answer the chat is in `function handle_message` 
 
 ※ the **text messeage** from the chat room is `event.message.text` variable
 
