@@ -51,7 +51,7 @@ def callback():
         print("Invalid signature. Please check your channel access token/channel secret.")
         abort(400)
 
-    return status.HTTP_200_OK
+    return 'OK'
 
 # webhook
 # @app.route("/webhook", methods=['GET', 'POST'])
@@ -66,6 +66,9 @@ def handle_message(event):
 
     # ทำให้ที่พิมพ์เข้ามาเป็นตัวพิมเล็ก
     eventText = event.message.text.lower()
+
+    if(eventText == 'hello, world'):
+        return 'OK'
 
     # trim space หน้า หลัง
     trimmed = eventText.strip()
@@ -94,6 +97,8 @@ def handle_message(event):
                     original_content_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg',
                     preview_image_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg'
                 )
+            else:
+                message = "Sorry, I can't answer you that."
 
 
     line_bot_api.reply_message(
