@@ -53,7 +53,7 @@ line_bot_api.reply_message(
 Next we gonna deploy our work to Heroku
 
 ## Deploy your code to Heroku
-sign in to Heroku and **create new app**
+sign in to Heroku https://id.heroku.com/login and **create new app**
 
 ※ for **Deployment Method** select **GitHub**
 
