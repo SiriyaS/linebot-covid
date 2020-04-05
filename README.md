@@ -29,6 +29,7 @@ virtualenv -p python3 venv
 source venv/bin/activate
 ```
 you can deactivate the virtual environment by type `deactivate` in terminal
+
 ※ install all dependencies in project
 ```
 pip install -r requirements.txt
@@ -71,6 +72,8 @@ In **Messaging API** tab goes down to **Webhook Setting**
 ※ add webhook URL ex. `https://<app_name>.herokuapp.com/webhook`
 
 ※ click **Verify** ,you should see **Success** pop-up window
+
+##
 
 🎉 Congratulation! Now your LINE bot is ready.
 
