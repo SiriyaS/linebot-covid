@@ -11,7 +11,7 @@ create your line messaging API in https://developers.line.me/
 
 ※ copy your **Channel secret** and **Channel access token**
 
-Ready to implement your code!
+> Ready to implement your code!
 
 ## Implement Line API
 ※ clone this repository
@@ -49,6 +49,7 @@ line_bot_api.reply_message(
 ※ when you finish implementing the code **push** your work to your own **GitHub**
 
 Next we gonna deploy our work to Heroku
+
 ## Deploy your code to Heroku
 sign in to Heroku and **create new app**
 
