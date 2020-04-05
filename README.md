@@ -57,7 +57,7 @@ sign in to Heroku https://id.heroku.com/login and **create new app**
 
 ※ for **Deployment Method** select **GitHub**
 
-※ select **repository** and **branch** you want to connect with
+※ select **GitHub repository** and **branch** you want to connect with
 
 ※ for **Automatic Deploys** click **Enable Automatic Deploys** (if you want to deploy your work automatically whenever you push to GitHub)
 
@@ -71,7 +71,7 @@ In **Messaging API** tab goes down to **Webhook Setting**
 
 ※ add webhook URL ex. `https://<app_name>.herokuapp.com/webhook`
 
-※ click **Verify** ,you should see **Success** pop-up window
+※ click **Verify**, you should see **Success** pop-up window
 
 ##
 
