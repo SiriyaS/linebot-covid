@@ -11,7 +11,7 @@ create your line messaging API in https://developers.line.me/
 
 ※ copy your **Channel secret** and **Channel access token**
 
-> Ready to implement your code!
+Ready to implement your code!
 
 ## Implement Line API
 ※ clone this repository
@@ -19,6 +19,7 @@ create your line messaging API in https://developers.line.me/
 git clone https://github.com/SiriyaS/linebot-covid.git
 ```
 cd to the project
+
 ※ set up virtual environment (if you don't have, install by `pip install virtualenv` first)
 ```
 virtualenv -p python3 venv
