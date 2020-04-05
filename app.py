@@ -99,6 +99,7 @@ def handle_message(event):
                 )
             else:
                 message = "Sorry, I can't answer you that."
+                reply_message = TextSendMessage(message)
 
 
     line_bot_api.reply_message(
