@@ -9,7 +9,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
+    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage, FlexSendMessage
 )
 
 
@@ -95,6 +95,101 @@ def handle_message(event):
                 reply_message = ImageSendMessage(
                     original_content_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg',
                     preview_image_url='https://www.isranews.org/images/2020/isranews/2/covid0803631.jpg'
+                )
+            elif(splited[1] == 'working'):
+                # Send flex message
+                reply_message = FlexSendMessage(
+                    altText = "This is a flex message",
+                    contents = {
+                        "type": "bubble",
+                        "header": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "Where do you work today?",
+                                    "weight": "bold",
+                                    "size": "lg",
+                                    "align": "center"
+                                }
+                            ]
+                        },
+                        "hero": {
+                            "type": "image",
+                            "url": "https://www.romania-insider.com/sites/default/files/styles/article_large_image/public/2020-04/remote_working_laptop_-_photo_pattanaphong_khuankaew_-_dreamstime.com_.jpg",
+                            "size": "full",
+                            "aspectRatio": "2:1"
+                        },
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "spacing": "md",
+                            "contents": [
+                                # แนวนอน แถว 1
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "spacing": "md",
+                                    "contents": [
+                                        {
+                                            "type": "button",
+                                            "style": "link",
+                                            "action": {
+                                                "type":"message",
+                                                "label":"Home",
+                                                "text":"Home"
+                                            }
+                                        },
+                                        {
+                                            "type": "separator"   # เส้นกั้นแนวตั้ง
+                                        },
+                                        {
+                                            "type": "button",
+                                            "style": "link",
+                                            "action": {
+                                                "type":"message",
+                                                "label":"Office",
+                                                "text":"Office"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "separator"  # เส้นกั้นแนวนอน
+                                },
+                                # แนวนอน แถว 2
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "spacing": "md",
+                                    "contents": [
+                                        {
+                                            "type": "button",
+                                            "style": "link",
+                                            "action": {
+                                                "type":"message",
+                                                "label":"Client's Office",
+                                                "text":"Client's Office"
+                                            }
+                                        },
+                                        {
+                                            "type": "separator"   # เส้นกั้นแนวตั้ง
+                                        },
+                                        {
+                                            "type": "button",
+                                            "style": "link",
+                                            "action": {
+                                                "type":"message",
+                                                "label":"Absent",
+                                                "text":"Absent"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
                 )
             else:
                 message = "Sorry, I can't answer you that."
