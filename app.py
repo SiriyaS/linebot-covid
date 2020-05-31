@@ -99,7 +99,7 @@ def handle_message(event):
             elif(splited[1] == 'working'):
                 # Send flex message
                 reply_message = FlexSendMessage(
-                    altText = "This is a flex message",
+                    alt_text = "This is a flex message",
                     contents = {
                         "type": "bubble",
                         "header": {

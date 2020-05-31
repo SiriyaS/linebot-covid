@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ```
 ※ change **Channel secret** and **Channel access token** to yours
 
-It's time to implement yor line API logic!
+It's time to implement your line API logic!
 
 ※ the **logic** for linebot to answer the chat is in `function handle_message` 
 
