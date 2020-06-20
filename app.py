@@ -61,7 +61,6 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     print(event.message)
-    print(event.source.userId)
 
     # ทำให้ที่พิมพ์เข้ามาเป็นตัวพิมเล็ก
     eventText = event.message.text.lower()
